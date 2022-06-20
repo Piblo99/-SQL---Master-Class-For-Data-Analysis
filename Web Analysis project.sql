@@ -53,7 +53,7 @@ select
 from
 	[dbo].[VisitorAnalysis] va inner join
 	[dbo].[UserType] ut on va.UserTypeKey = ut.UserTypeKey and
-						                    ut.UserType = 'New Visitor'
+                                            ut.UserType = 'New Visitor'
 group by
 	 year([DateKey]) 
 	,datepart(week,[DateKey]) 
@@ -71,7 +71,7 @@ order by
 	from
 		[dbo].[VisitorAnalysis] va inner join
 		[dbo].[UserType] ut on va.UserTypeKey = ut.UserTypeKey and
-												ut.UserType = 'Returning Visitor'
+                                                ut.UserType = 'Returning Visitor'
 	group by
 		 year([DateKey]) 
 		,datepart(week,[DateKey]) 

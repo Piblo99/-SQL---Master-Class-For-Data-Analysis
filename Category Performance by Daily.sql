@@ -37,7 +37,7 @@ USE [Chapter 3 - Sales (Keyed) ];
 	from
 		[dbo].[OnlineSales] os inner join
 		[dbo].[Product] prod on os.ProductKey = prod.ProductKey and
-								year([OrderDate]) = 2013		inner join
+								year([OrderDate]) = 2013 inner join
 		[dbo].[ProductSubcategory] psc on prod.ProductSubcategoryKey = psc.ProductSubcategoryKey inner join
 		[dbo].[ProductCategory] pc on psc.ProductCategoryKey = pc.ProductCategoryKey
 	group by	 
@@ -60,7 +60,7 @@ USE [Chapter 3 - Sales (Keyed) ];
 	from
 		[dbo].[OnlineSales] os inner join
 		[dbo].[Product] prod on os.ProductKey = prod.ProductKey and
-								year([OrderDate]) = 2013		inner join
+								year([OrderDate]) = 2013 inner join
 		[dbo].[ProductSubcategory] psc on prod.ProductSubcategoryKey = psc.ProductSubcategoryKey inner join
 		[dbo].[ProductCategory] pc on psc.ProductCategoryKey = pc.ProductCategoryKey
 	group by	 
@@ -86,7 +86,7 @@ USE [Chapter 3 - Sales (Keyed) ];
 	from
 		[dbo].[OnlineSales] os inner join
 		[dbo].[Product] prod on os.ProductKey = prod.ProductKey and
-								year([OrderDate]) = 2013 		inner join
+								year([OrderDate]) = 2013 inner join
 		[dbo].[ProductSubcategory] psc on prod.ProductSubcategoryKey = psc.ProductSubcategoryKey inner join
 		[dbo].[ProductCategory] pc on psc.ProductCategoryKey = pc.ProductCategoryKey 
 										
