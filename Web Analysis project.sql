@@ -1,4 +1,4 @@
---	1:	Pageviews vs bounce rate by day					(Student)
+-- 1:	Pageviews vs bounce rate by day
 
 select
 	 pa.DateKey
@@ -12,7 +12,7 @@ group by
 order by 
 	 pa.DateKey
 
---	2:	Pageviews vs bounce by week							(Paul)		**
+-- 2:	Pageviews vs bounce by week
 
 select
 	 cal.YearNum
@@ -29,7 +29,7 @@ order by
 	 cal.YearNum
 	,cal.WeekNumYear
 
---  3:  Pageviews vs bounce rate by month					(Student)
+--  3:  Pageviews vs bounce rate by month
 
 select
 	 cal.[MonthYearName]
@@ -43,7 +43,7 @@ group by
 order by 
 	cal.[MonthYearName]
 		
---	4:	Avg session duration New visitor by week			(Paul)		**
+-- 4:	Avg session duration New visitor by week
 
 select
 	 year([DateKey]) as YearNum
@@ -61,7 +61,7 @@ order by
 	 year([DateKey]) 
 	,datepart(week,[DateKey]) 
 
---	4a:	Avg session duration Returning visitor by week			(Student)		
+-- 4a:	Avg session duration Returning visitor by week	
 
 	select
 		 year([DateKey]) as YearNum
@@ -80,7 +80,7 @@ order by
 		,datepart(week,[DateKey]) 
 
 
---	5:	Sessions vs avg Pages/Session by week				(Paul)		**
+-- 5:	Sessions vs avg Pages/Session by week
 
 select
 	 year([DateKey]) as YearNum
@@ -96,7 +96,7 @@ order by
 	 year([DateKey]) 
 	,datepart(week,[DateKey])
 
----	6:	New users vs Pageviews by week					(Student)
+-- 6:	New users vs Pageviews by week
 
 select
 	 year(DateKey) as YearNum	
