@@ -18,7 +18,7 @@
 
 */
 
-use [Chapter 3 - Sales (Keyed) ];			-- <<<< Use chapter 3 sales database for this project
+use [Chapter 3 - Sales (Keyed) ];
 
 -- Ranked list of customer sales over country for Dec 2013
 
@@ -61,6 +61,7 @@ group by
 	   pc.ProductCategoryName
 	  ,ProductName
 
--- Test Question : 1 What is the ranking for Cat:Accessories/Prod:Touring Tire/TotalSales:2406.17		Answer = 10
--- 				   2 What product is the worst sales performer (looking at Rank) for Category=Bikes		Answer = Mountain-500 Black, 40	 
--- 				   3 What product is the best sales performer (looking at Rank) for Category=Clothing	Answer = Short-Sleeve Classic Jersey, XL	
+-- Questions
+-- 1 What is the ranking for Cat:Accessories/Prod:Touring Tire/TotalSales:2406.17		Answer = 10
+-- 2 What product is the worst sales performer (looking at Rank) for Category=Bikes		Answer = Mountain-500 Black, 40	 
+-- 3 What product is the best sales performer (looking at Rank) for Category=Clothing	Answer = Short-Sleeve Classic Jersey, XL	
