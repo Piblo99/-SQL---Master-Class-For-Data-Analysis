@@ -100,7 +100,7 @@ USE [Chapter 3 - Sales (Keyed) ];
 		,pc.ProductCategoryName
 		,[ProductName]	
 
--- After prac questions
--- Question : what is the first stocked date of product "Mountain-200 Black, 46"    A: 2010-12-28
---            what is the first sold date of product "Fender Set - Mountain"		A: 2012-12-29
+-- Questions
+-- what is the first stocked date of product "Mountain-200 Black, 46"   A: 2010-12-28
+-- what is the first sold date of product "Fender Set - Mountain"	A: 2012-12-29
  				    
