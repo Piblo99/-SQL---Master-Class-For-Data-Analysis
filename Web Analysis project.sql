@@ -32,12 +32,11 @@ GROUP  BY cal.[monthyearname]
 ORDER  BY cal.[monthyearname]
 
 -- 4:  Avg session duration New visitor by week
-SELECT Year([datekey])                                          AS YearNum,
-       Datepart(week, [datekey])                                AS WeekNum,
+SELECT Year([datekey]) AS YearNum,
+       Datepart(week, [datekey]) AS WeekNum,
        Avg(Datediff(millisecond, 0, avgsessionduration)) / 1000 AS
        AvgSessionDuration,
-       Count(va.[usertypekey])                                  AS
-       WeeklyNewVisitor
+       Count(va.[usertypekey]) AS WeeklyNewVisitor
 FROM   [dbo].[visitoranalysis] va
        INNER JOIN [dbo].[usertype] ut
                ON va.usertypekey = ut.usertypekey
@@ -48,8 +47,8 @@ ORDER  BY Year([datekey]),
           Datepart(week, [datekey])
 
 -- 4a:  Avg session duration Returning visitor by week  
-SELECT Year([datekey])                                          AS YearNum,
-       Datepart(week, [datekey])                                AS WeekNum,
+SELECT Year([datekey]) AS YearNum,
+       Datepart(week, [datekey]) AS WeekNum,
        Avg(Datediff(millisecond, 0, avgsessionduration)) / 1000 AS
        AvgSessionDuration
        -- Use Datediff here to calculate the seconds as we cannot just use numeri functions on time data types
