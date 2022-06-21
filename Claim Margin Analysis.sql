@@ -6,7 +6,7 @@
 
 */
 
-use [Chapter 4 - Insurance]; -- <<< use chapter 4 Insurance database for this project
+use [Chapter 4 - Insurance];
 
 -- The product manager wants a simple statement of the profitability of TPD insurance for years 2012 to 2014
 -- The Claims value will be compared to ALL TPD premiums to establish the margin (profit)
@@ -72,14 +72,10 @@ group by
 	,YearlyPremium.TPDCoverPremium
 	,cl.ClaimType 
 
--- Student Prac 
-
 -- The product manager wants a simple statement of the profitability of DTH insurance for years 2012 to 2014
 -- The Claims value will be compared to ALL DTH premiums to establish the margin (profit)
 
--- Include the claim count and the policy holder count 
--- Hint: use the outer apply to compute the policy holder count for DTH
-
+-- Include the claim count and the policy holder count
 
 select 
 	 YearlyPremium.underwriting_year
@@ -122,7 +118,6 @@ group by
 	,YearlyPremium.DTHPolicyHolders
 	,cl.ClaimType
 
--- End of prac Questions 
 -- How many claims for 2013           ? A: = 40
 -- How many policy holders for 2014   ? A: = 7480
 -- What year was the least profitable ? A: = 2013
