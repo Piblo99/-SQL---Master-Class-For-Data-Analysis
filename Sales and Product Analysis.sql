@@ -62,6 +62,6 @@ group by
 	  ,ProductName
 
 -- Questions
--- 1 What is the ranking for Cat:Accessories/Prod:Touring Tire/TotalSales:2406.17		Answer = 10
--- 2 What product is the worst sales performer (looking at Rank) for Category=Bikes		Answer = Mountain-500 Black, 40	 
+-- 1 What is the ranking for Cat:Accessories/Prod:Touring Tire/TotalSales:2406.17	Answer = 10
+-- 2 What product is the worst sales performer (looking at Rank) for Category=Bikes	Answer = Mountain-500 Black, 40	 
 -- 3 What product is the best sales performer (looking at Rank) for Category=Clothing	Answer = Short-Sleeve Classic Jersey, XL	
