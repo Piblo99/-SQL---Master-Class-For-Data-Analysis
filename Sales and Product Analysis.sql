@@ -19,7 +19,7 @@ SELECT geo.countryregionname,
        cust.lastname,
        cust.firstname,
        cust.emailaddress,
-       Sum([salesamount])                    AS TotalMthSales,
+       Sum([salesamount]) AS TotalMthSales,
        Rank()
          OVER (
            partition BY [countryregionname]
@@ -41,7 +41,7 @@ GROUP  BY cust.customerkey,
 --   Prac - Ranked list of product sales over country Nov 2013
 SELECT pc.productcategoryname,
        productname,
-       Sum([salesamount])                    AS TotalMthSales,
+       Sum([salesamount]) AS TotalMthSales,
        Rank()
          OVER (
            partition BY pc.productcategoryname
