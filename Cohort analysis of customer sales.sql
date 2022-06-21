@@ -30,7 +30,7 @@
 --			Outer Apply or correlated sub query for computing this date.
 
 	SELECT 
-			os.CustomerKey
+		    os.CustomerKey
 		   ,os.SalesAmount 
 		   ,os.[OrderDate]
 		   ,cohorts.FirstPurchDate 
@@ -42,8 +42,7 @@
 			 
 				 GROUP  BY CustomerKey) AS cohorts 
 		 ON os.CustomerKey = cohorts.CustomerKey 
-	order by
-		1
+	ORDER BY 1
 
 -- Step 2 :  Setup year/month groups since we are doing cohort analysis by
 --			 customers when they made their first purchase, we can re-use the
@@ -51,7 +50,7 @@
 
 
 	SELECT	
-			os.CustomerKey
+		    os.CustomerKey
 		   ,os.SalesAmount 
 		   ,os.[OrderDate]
 		   ,cohorts.FirstPurchDate
@@ -59,13 +58,12 @@
 	FROM   
 		   [dbo].[OnlineSales] os
 		   JOIN (SELECT CustomerKey, 
-						Min([OrderDate]) AS FirstPurchDate 
-					   ,cast(Year(Min([OrderDate])) as char(4)) + '-' + cast(month(Min([OrderDate])) as varchar(2)) as CohortMonthly
+			        Min([OrderDate]) AS FirstPurchDate 
+			        ,cast(Year(Min([OrderDate])) as char(4)) + '-' + cast(month(Min([OrderDate])) as varchar(2)) as CohortMonthly
 				 FROM   [OnlineSales] 
 				 GROUP  BY CustomerKey) AS cohorts 
 		 ON os.CustomerKey = cohorts.CustomerKey 
-	order by
-			1
+	ORDER BY 1
 
 -- Step 3 : Establish the life time month at which each sale event took place 
 --			for each cohort member (customer), hence if the member (cust) made their first
@@ -80,7 +78,7 @@
 -- working out session duration in the google analytics data project 1
 	
 	SELECT	
-			os.CustomerKey
+		    os.CustomerKey
 		   ,os.SalesAmount 
 		   ,os.[OrderDate]
 		   ,cohorts.FirstPurchDate
@@ -89,33 +87,31 @@
 	FROM   
 		   [dbo].[OnlineSales] os
 		   JOIN (SELECT CustomerKey, 
-						Min([OrderDate]) AS FirstPurchDate 
+					    Min([OrderDate]) AS FirstPurchDate 
 					   ,cast(Year(Min([OrderDate])) as char(4)) + '-' + cast(month(Min([OrderDate])) as varchar(2)) as CohortMonthly
 				 FROM   [OnlineSales] 
 				 GROUP  BY CustomerKey) AS cohorts 
 		 ON os.CustomerKey = cohorts.CustomerKey 
-	order by 
-		1 	
+	ORDER BY 1 	
 
 
 -- Step 4 : Calculate Average the sales value for each cohort and group by the cohort
 
 	SELECT	
-			avg(os.SalesAmount ) as AvgCustSales
+		    avg(os.SalesAmount ) as AvgCustSales
 		   ,cohorts.CohortMonthly
 		   ,(datediff(d,cohorts.FirstPurchDate,os.OrderDate)/30)+1 as LifetimeMonth
 	FROM   
 		   [dbo].[OnlineSales] os
 			JOIN (SELECT CustomerKey, 
-						Min([OrderDate]) AS FirstPurchDate 
-					   ,cast(Year(Min([OrderDate])) as char(4)) + '-' + cast(month(Min([OrderDate])) as varchar(2)) as CohortMonthly
+			             Min([OrderDate]) AS FirstPurchDate 
+				     ,cast(Year(Min([OrderDate])) as char(4)) + '-' + cast(month(Min([OrderDate])) as varchar(2)) as CohortMonthly
 				 FROM   [OnlineSales] 
 				 GROUP  BY CustomerKey) AS cohorts 
 		 ON os.CustomerKey = cohorts.CustomerKey 
-	group by
+	GROUP BY
 		  CohortMonthly
 		 ,(datediff(d,cohorts.FirstPurchDate,os.OrderDate)/30)+1
-	order by
-		3
+	ORDER BY 3
 
 
