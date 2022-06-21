@@ -96,7 +96,7 @@ outer apply
 			,sum([total_death_cover_premium])	as DTHCoverPremium
 			,sum([total_tpd_cover_premium])		as TPDCoverPremium
 			,sum([total_ip_cover_premium])		as IPCoverPremium
-			,count([total_death_cover_premium]) as DTHPolicyHolders
+			,count([total_death_cover_premium]) 	as DTHPolicyHolders
 			,count([total_tpd_cover_premium])	as TPDPolicyHolders
 			,count([total_ip_cover_premium])	as IPPolicyHolders
 		from
