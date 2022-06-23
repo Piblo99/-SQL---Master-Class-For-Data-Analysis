@@ -31,10 +31,8 @@ ORDER  BY [underwriting_year]
 SELECT YearlyPremium.underwriting_year,
        cl.claimtype,
        YearlyPremium.tpdcoverpremium,
-       Sum(claimpaidamount) AS TotalClaimPaid
-       ,
-       YearlyPremium.tpdcoverpremium - Sum(cl.claimpaidamount) AS
-       CoverProfit
+       Sum(claimpaidamount) AS TotalClaimPaid,
+       YearlyPremium.tpdcoverpremium - Sum(cl.claimpaidamount) AS CoverProfit
 FROM   [dbo].[memberclaims] cl
        OUTER apply (SELECT underwriting_year,
                            Sum([total_death_cover_premium]) AS DTHCoverPremium,
@@ -62,10 +60,8 @@ SELECT YearlyPremium.underwriting_year,
        YearlyPremium.dthcoverpremium - Sum(cl.claimpaidamount) AS CoverProfit
 FROM   [dbo].[memberclaims] cl
        OUTER apply (SELECT underwriting_year,
-                           Sum([total_death_cover_premium])   AS DTHCoverPremium
-                           ,
-                           Sum(
-                   [total_tpd_cover_premium])     AS TPDCoverPremium,
+                           Sum([total_death_cover_premium])   AS DTHCoverPremium,
+                           Sum([total_tpd_cover_premium])     AS TPDCoverPremium,
                            Sum([total_ip_cover_premium])      AS IPCoverPremium,
                            Count([total_death_cover_premium]) AS DTHPolicyHolders,
                            Count([total_tpd_cover_premium])   AS TPDPolicyHolders,
